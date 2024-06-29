@@ -8,6 +8,7 @@ export default function Button({
     className,
     ...props
 }: IButtonProps) {
+
   return (
     <button
         className={

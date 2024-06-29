@@ -2,19 +2,30 @@
 @use "/src/app/styles/_mixins" as mixins;
 
 .default {
-    padding: map-get(vars.$paddings, btn);
-    border: 1px solid map-get(vars.$colors, orange);
+    @include mixins.flex($hasGap: false);
+    border: none;
+    @include mixins.outline;
     border-radius: map-get(vars.$radius, sm);
     text-align: center;
     background: none;
     @include mixins.cursorPointer;
 }
 
+.filled,
+.outlined {
+    padding: map-get(vars.$paddings, btn);
+    @include mixins.border($color: map-get(vars.$colors, orange));
+}
+
 .filled {
-    color: map-get(vars.$colors, white);
+    color: map-get(vars.$colors, white1);
     background: map-get(vars.$colors, orange);
 }
 
 .outlined {
     color: map-get(vars.$colors, orange);
+}
+
+.icon {
+    border-radius: map-get(vars.$radius, rounded);
 }

@@ -1,0 +1,37 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+    @include mixins.flex(column) {
+        align-items: flex-start;
+        gap: calc(map-get(vars.$gaps, default) / 4);
+    }
+    @include mixins.label;   
+}
+
+.input {
+    padding: map-get(vars.$paddings, input);
+    @include mixins.outline {
+        outline-offset: -1px;
+    };
+    @include mixins.border;
+    border-radius: map-get(vars.$radius, sm);
+    &:has(~.error) {
+        @include mixins.border($color: map-get(vars.$colors, error));
+    }
+    @include mixins.placeholder;
+}
+
+.label {
+    @include mixins.cursorPointer;
+    @include mixins.flex {
+        gap: calc(map-get(vars.$gaps, default) / 4)
+    };
+}
+
+.requiredMarker,
+.error {
+    color: map-get(vars.$colors, error);
+}
+
+
