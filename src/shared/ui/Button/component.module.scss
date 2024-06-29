@@ -1,0 +1,20 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+    padding: map-get(vars.$paddings, btn);
+    border: 1px solid map-get(vars.$colors, orange);
+    border-radius: map-get(vars.$radius, sm);
+    text-align: center;
+    background: none;
+    @include mixins.cursorPointer;
+}
+
+.filled {
+    color: map-get(vars.$colors, white);
+    background: map-get(vars.$colors, orange);
+}
+
+.outlined {
+    color: map-get(vars.$colors, orange);
+}

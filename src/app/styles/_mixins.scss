@@ -19,4 +19,8 @@
 	@content;
 }
 
+@mixin cursorPointer {
+	cursor: url('/images/cursorPointer.svg'), pointer;
+}
+
 

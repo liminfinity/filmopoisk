@@ -1,4 +1,4 @@
-@import "variables", "mixins";
+@use "_variables" as vars;
 
 *,
 *::before,
@@ -20,11 +20,11 @@ fieldset {
 body {
 	min-height: 100vh;
 	line-height: 1.3;
-	background: map-get($colors, white1);
-	color: map-get($colors, black1);
+	background: map-get(vars.$colors, white1);
+	color: map-get(vars.$colors, black1);
 }
 
-@each $header, $size in $fontSizes {
+@each $header, $size in vars.$fontSizes {
 	#{$header} {
 		font-size: $size;
 	}
