@@ -1,0 +1,10 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+    @include mixins.flex;
+}
+
+
+
+

@@ -4,7 +4,7 @@ import Component from "./mockProvider";
 
 const meta = {
 	component: Component,
-	title: "Shared/Select",
+	title: "Shared/PaginationControl",
 	tags: ["autodocs"],
 	parameters: {
 		layout: "centered",
@@ -16,7 +16,7 @@ const meta = {
 
 type Story = StoryObj<typeof Component>;
 
-export const SelectDefault: Story = {
+export const PaginationControlDefault: Story = {
 	args: {},
 };
 

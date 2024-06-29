@@ -1,22 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import Component from "./mockProvider";
+import Component from "./component";
 
 const meta = {
 	component: Component,
-	title: "Shared/Select",
+	title: "Shared/Loader",
 	tags: ["autodocs"],
 	parameters: {
 		layout: "centered",
-	},
-	args: {
-		onChange: fn()
-	},
+	}
 } satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof Component>;
 
-export const SelectDefault: Story = {
+export const LoaderDefault: Story = {
 	args: {},
 };
 
