@@ -29,7 +29,7 @@
 	border: 1px solid $color;
 }
 
-@mixin label($color: map-get(vars.$colors, black1)) {
+@mixin label($color: map-get(vars.$colors, black)) {
 	color: $color;
 	font-weight: 400;
 	font-size: map-get(vars.$fontSizes, label);

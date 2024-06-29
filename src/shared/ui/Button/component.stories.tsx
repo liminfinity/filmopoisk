@@ -16,6 +16,12 @@ const meta = {
 
 type Story = StoryObj<typeof Component>;
 
+export const ButtonText: Story = {
+	args: {
+		children: "Отправить",
+		variant: "text",
+	},
+};
 export const ButtonFilled: Story = {
 	args: {
 		children: "Отправить",

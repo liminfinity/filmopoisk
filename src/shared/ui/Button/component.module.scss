@@ -29,3 +29,9 @@
 .icon {
     border-radius: map-get(vars.$radius, rounded);
 }
+
+.text {
+    @include mixins.border;
+    outline-offset: -1px;
+    padding: map-get(vars.$paddings, btn);
+}

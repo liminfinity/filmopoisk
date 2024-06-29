@@ -21,8 +21,8 @@ body {
 	min-height: 100vh;
 	line-height: 1.3;
 	background: map-get(vars.$colors, white3);
-	font-family: map-get(vars.$fonts, family1);
-	color: map-get(vars.$colors, black1);
+	font-family: map-get(vars.$fonts, family);
+	color: map-get(vars.$colors, black);
 }
 
 @each $header, $size in vars.$fontSizes {

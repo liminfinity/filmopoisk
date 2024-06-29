@@ -2,7 +2,6 @@
 @use "/src/app/styles/_mixins" as mixins;
 
 .default {
-    position: relative;
     @include mixins.flex {
         gap: calc(map-get(vars.$gaps, default) / 2);
     }
