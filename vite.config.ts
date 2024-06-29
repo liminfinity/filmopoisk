@@ -12,4 +12,14 @@ export default defineConfig({
     port: 3001,
     strictPort: true
   },
+  resolve: {
+    alias: {
+      "@shared": "/src/shared",
+      "@pages": "/src/pages",
+      "@entities": "/src/entities",
+      "@features": "/src/features",
+      "@widgets": "/src/widgets",
+      "@app": "/src/app",
+    }
+  },
 })

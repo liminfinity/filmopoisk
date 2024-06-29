@@ -1,0 +1,31 @@
+@import "variables", "mixins";
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul, 
+ol {
+	list-style: none;
+}
+
+fieldset {
+	border: none;
+}
+
+body {
+	min-height: 100vh;
+	line-height: 1.3;
+	background: map-get($colors, white1);
+	color: map-get($colors, black1);
+}
+
+@each $header, $size in $fontSizes {
+	#{$header} {
+		font-size: $size;
+	}
+}

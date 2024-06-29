@@ -1,0 +1,22 @@
+@mixin flex($dir: row, $hasGap: true) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@if $hasGap {
+		gap: map-get($gaps, default);
+	}
+	flex-direction: $dir;
+	@content;
+}
+
+@mixin grid($hasGap: true) {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	@if $hasGap {
+		gap: map-get($gaps, default);
+	}
+	@content;
+}
+
+
