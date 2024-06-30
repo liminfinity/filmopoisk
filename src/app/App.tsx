@@ -1,13 +1,14 @@
 
-import { RouterProvider } from "./providers"
+import { ReduxProvider, RouterProvider } from "./providers"
 import "./styles/globals.scss"
 
 
 function App() {
   
-      
   return (
-    <RouterProvider/>
+    <ReduxProvider>
+      <RouterProvider/>
+    </ReduxProvider>
   )
 }
 

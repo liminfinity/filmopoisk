@@ -1,3 +1,5 @@
 import RouterProvider from "./withRouter";
+import ReduxProvider from "./withRedux";
 
-export { RouterProvider };
+export { RouterProvider, ReduxProvider };
+

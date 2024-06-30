@@ -19,7 +19,6 @@ interface IGetMovieByIdRequest {
     id: string
 }
 
-
 interface ISendMovieRateRequest {
     movieId: string
     user_rate: number
