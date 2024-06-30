@@ -2,40 +2,40 @@
 @use "/src/app/styles/_mixins" as mixins;
 
 .default {
-    @include mixins.flex($hasGap: false);
-    border: none;
-    @include mixins.outline;
-    border-radius: map-get(vars.$radius, sm);
-    text-align: center;
-    background: none;
-    @include mixins.cursorPointer;
-    &:disabled {
-        outline: none;
-        cursor: not-allowed;
-    }
+	@include mixins.flex($hasGap: false);
+	border: none;
+	@include mixins.outline;
+	border-radius: map-get(vars.$radius, sm);
+	text-align: center;
+	background: none;
+	@include mixins.cursorPointer;
+	&:disabled {
+		outline: none;
+		cursor: not-allowed;
+	}
 }
 
 .filled,
 .outlined {
-    padding: map-get(vars.$paddings, btn);
-    @include mixins.border($color: map-get(vars.$colors, orange));
+	padding: map-get(vars.$paddings, btn);
+	@include mixins.border($color: map-get(vars.$colors, orange));
 }
 
 .filled {
-    color: map-get(vars.$colors, white1);
-    background: map-get(vars.$colors, orange);
+	color: map-get(vars.$colors, white1);
+	background: map-get(vars.$colors, orange);
 }
 
 .outlined {
-    color: map-get(vars.$colors, orange);
+	color: map-get(vars.$colors, orange);
 }
 
 .icon {
-    border-radius: map-get(vars.$radius, rounded);
+	border-radius: map-get(vars.$radius, rounded);
 }
 
 .text {
-    @include mixins.border;
-    outline-offset: -1px;
-    padding: map-get(vars.$paddings, btn);
+	@include mixins.border;
+	outline-offset: -1px;
+	padding: map-get(vars.$paddings, btn);
 }

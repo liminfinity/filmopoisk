@@ -7,11 +7,11 @@ import {
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Entry.Layout/>,
+		element: <Entry.Layout />,
 		children: [
 			{
 				index: true,
-				element: <Entry.MainPage/>,
+				element: <Entry.MainPage />,
 			},
 			{
 				path: "/movies",
@@ -19,12 +19,11 @@ const router = createBrowserRouter([
 					{
 						path: ":movieId",
 						element: <div>MovieId</div>,
-					}
-				]
-			}
+					},
+				],
+			},
 		],
 	},
-	
 ]);
 
 export default function RouterProvider() {

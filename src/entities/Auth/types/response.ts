@@ -1,13 +1,11 @@
-import { IResponseError } from "@shared/types"
+import { IResponseError } from "@shared/types";
 
 interface ILoginResponseSuccess {
-    token: string
+	token: string;
 }
 
 interface ILoginResponseError extends IResponseError {}
 
-type ILoginResponse = ILoginResponseSuccess | ILoginResponseError
+type ILoginResponse = ILoginResponseSuccess | ILoginResponseError;
 
-
-
-export type {ILoginResponse, ILoginResponseSuccess, ILoginResponseError}
+export type { ILoginResponse, ILoginResponseSuccess, ILoginResponseError };

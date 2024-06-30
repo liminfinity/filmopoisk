@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from "react";
 
-export interface ISearchInputProps extends 
-InputHTMLAttributes<HTMLInputElement> {
-    onClear?: () => void
+export interface ISearchInputProps
+	extends InputHTMLAttributes<HTMLInputElement> {
+	onClear?: () => void;
 }

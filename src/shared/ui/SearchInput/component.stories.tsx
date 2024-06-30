@@ -11,7 +11,7 @@ const meta = {
 	},
 	args: {
 		onClick: fn(),
-		onChange: fn()
+		onChange: fn(),
 	},
 } satisfies Meta<typeof Component>;
 
@@ -25,7 +25,7 @@ export const SearchInputDefault: Story = {
 export const SearchInputWithClearBtn: Story = {
 	args: {
 		placeholder: "Название фильма",
-		value: "Хоббит"
+		value: "Хоббит",
 	},
 };
 

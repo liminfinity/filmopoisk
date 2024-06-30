@@ -1,1 +1,6 @@
-export {default, useGetMovieByIdQuery, useGetMoviesQuery, useSendMovieRateMutation} from "./api"
+export {
+	default,
+	useGetMovieByIdQuery,
+	useGetMoviesQuery,
+	useSendMovieRateMutation,
+} from "./api";

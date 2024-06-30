@@ -10,7 +10,7 @@ const meta = {
 		layout: "centered",
 	},
 	args: {
-		onChange: fn()
+		onChange: fn(),
 	},
 } satisfies Meta<typeof Component>;
 

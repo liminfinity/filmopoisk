@@ -22,7 +22,7 @@
 }
 
 @mixin cursorPointer {
-	cursor: url('/images/cursorPointer.svg'), pointer;
+	cursor: url("/images/cursorPointer.svg"), pointer;
 }
 
 @mixin border($color: map-get(vars.$colors, white2)) {
@@ -42,7 +42,6 @@
 }
 
 @mixin outline($color: map-get(vars.$colors, white2), $within: false) {
-	
 	outline: none;
 	outline-offset: 1px;
 	&:focus-visible {
@@ -54,5 +53,14 @@
 		}
 	}
 	@content;
-	
+}
+
+@mixin image {
+	border-radius: map-get(vars.$radius, sm);
+	object-fit: cover;
+	object-position: center;
+	max-width: 100%;
+	@supports (image-rendering: crisp-edges) {
+		image-rendering: crisp-edges;
+	}
 }

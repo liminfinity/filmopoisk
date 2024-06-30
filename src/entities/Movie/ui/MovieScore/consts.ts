@@ -1,0 +1,3 @@
+const SCORE_DEBOUCE_TIME = 300;
+
+export { SCORE_DEBOUCE_TIME };

@@ -11,16 +11,16 @@ const AuthSlice = createSlice({
 	reducers: {
 		setIsAuth: (state, action: PayloadAction<boolean>) => {
 			state.isAuth = action.payload;
-		}
+		},
 	},
 	selectors: {
-		isLoading: (state) => state.status === "pending",
-		isSuccess: (state) => state.status === "fulfilled",
-		isError: (state) => state.status === "rejected",
-		isIdle: (state) => state.status === "idle",
-		isAuth: (state) => state.isAuth,
-		getErrors: (state) => state.errors,
-		getStatus: (state) => state.status,
+		isLoading: state => state.status === "pending",
+		isSuccess: state => state.status === "fulfilled",
+		isError: state => state.status === "rejected",
+		isIdle: state => state.status === "idle",
+		isAuth: state => state.isAuth,
+		getErrors: state => state.errors,
+		getStatus: state => state.status,
 	},
 	extraReducers: builder => {
 		builder
@@ -31,17 +31,17 @@ const AuthSlice = createSlice({
 				state.isAuth = false;
 			})
 			.addMatcher(isFulfilled, state => {
-				state.status = 'fulfilled';
+				state.status = "fulfilled";
 				state.errors = [];
 			})
 			.addMatcher(isPending, state => {
-				state.status = 'pending';
+				state.status = "pending";
 				state.errors = [];
 			})
 			.addMatcher(
 				isRejected,
 				(state, action: PayloadAction<IResponseError>) => {
-					state.status = 'rejected';
+					state.status = "rejected";
 					state.errors.push(action.payload);
 				},
 			);
@@ -57,4 +57,3 @@ const actions = {
 };
 
 export { reducer, selectors, actions };
-

@@ -1,7 +1,7 @@
 import { IDefaultState } from "@shared/types";
 
 interface IAuthState extends IDefaultState {
-    isAuth?: boolean
+	isAuth?: boolean;
 }
 
-export type {IAuthState}
+export type { IAuthState };

@@ -11,7 +11,7 @@ const meta = {
 	},
 	args: {
 		onClick: fn(),
-		onChange: fn()
+		onChange: fn(),
 	},
 } satisfies Meta<typeof Component>;
 

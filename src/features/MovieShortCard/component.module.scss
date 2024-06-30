@@ -1,0 +1,54 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+	@include mixins.flex {
+		align-items: stretch;
+		gap: map-get(vars.$gaps, primary);
+	}
+	padding: map-get(vars.$paddings, card);
+	border-radius: map-get(vars.$radius, sm);
+	background: map-get(vars.$colors, white1);
+}
+
+.content {
+	flex: 1;
+	@include mixins.flex(column) {
+		align-items: flex-start;
+	}
+}
+
+.poster {
+	@include mixins.image;
+	width: 7rem;
+}
+
+.title {
+	font-weight: 600;
+}
+
+.info {
+	@include mixins.flex(column) {
+		align-items: flex-start;
+		gap: calc(map-get(vars.$gaps, default) - 4px);
+	}
+}
+
+.infoSection {
+	max-width: 70%;
+	@include mixins.flex {
+		align-items: flex-start;
+	}
+}
+
+.infoSectionLabel {
+	@include mixins.label($color: map-get(vars.$colors, gray3));
+}
+
+.infoSectionValue {
+	@include mixins.label;
+}
+
+.score {
+	align-self: flex-start;
+}

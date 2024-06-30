@@ -1,11 +1,10 @@
-import { IResponseError } from "./responseError"
+import { IResponseError } from "./responseError";
 
-
-type Status = 'idle' | 'pending' | 'fulfilled' | 'rejected'
+type Status = "idle" | "pending" | "fulfilled" | "rejected";
 
 interface IDefaultState {
-    status: Status
-    errors: IResponseError[] 
+	status: Status;
+	errors: IResponseError[];
 }
 
-export type {IDefaultState}
+export type { IDefaultState };

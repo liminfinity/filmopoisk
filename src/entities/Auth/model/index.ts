@@ -1,1 +1,1 @@
-export {reducer, selectors, actions} from "./slice"
+export { reducer, selectors, actions } from "./slice";

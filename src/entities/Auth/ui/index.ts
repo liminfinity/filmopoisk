@@ -1,2 +1,2 @@
-export {default as AuthModal} from "./AuthModal"
-export {default as AccountPanel} from "./AccountPanel"
+export { default as AuthModal } from "./AuthModal";
+export { default as AccountPanel } from "./AccountPanel";

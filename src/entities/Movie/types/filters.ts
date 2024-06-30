@@ -1,34 +1,33 @@
 const GENRES = {
-    '0': 'Не выбран',
-    comedy: 'Комедия',
-    drama: 'Драма',
-    action: 'Боевик',
-    thriller: 'Триллер',
-    horror: 'Ужасы',
-    family: 'Семейный',
-    cartoon: 'Анимированный',
-    fantasy: 'Фэнтези',
-    romance: 'Романтика',
-    adventure: 'Приключения',
-    musical: 'Мьюзикл',
-    war: 'Военный',
+	"0": "Не выбран",
+	comedy: "Комедия",
+	drama: "Драма",
+	action: "Боевик",
+	thriller: "Триллер",
+	horror: "Ужасы",
+	family: "Семейный",
+	cartoon: "Анимированный",
+	fantasy: "Фэнтези",
+	romance: "Романтика",
+	adventure: "Приключения",
+	musical: "Мьюзикл",
+	war: "Военный",
 } as const;
 
-type GenresEnglish = keyof typeof GENRES; 
-type GenresRussian = typeof GENRES[GenresEnglish];
+type GenresEnglish = keyof typeof GENRES;
+type GenresRussian = (typeof GENRES)[GenresEnglish];
 
 const YEARS = {
-    '0': 'Не выбран',
-    '2009': '2009',
-    '2008': '2008',
-    '2007': '2007',
-    '2006': '2006',
-    '1990-2005': '1990-2005',
-    '1950-1989': '1950-1989',
-} as const
+	"0": "Не выбран",
+	"2009": "2009",
+	"2008": "2008",
+	"2007": "2007",
+	"2006": "2006",
+	"1990-2005": "1990-2005",
+	"1950-1989": "1950-1989",
+} as const;
 
-type Years = keyof typeof YEARS
+type Years = keyof typeof YEARS;
 
-
-export {YEARS, GENRES}
-export type {GenresRussian, GenresEnglish, Years}
+export { YEARS, GENRES };
+export type { GenresRussian, GenresEnglish, Years };

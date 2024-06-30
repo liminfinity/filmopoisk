@@ -1,1 +1,1 @@
-export {useIsAuth} from "./useIsAuth"
+export { useIsAuth } from "./useIsAuth";

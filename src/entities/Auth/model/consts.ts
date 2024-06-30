@@ -1,3 +1,3 @@
-const SLICE_NAME = 'auth';
+const SLICE_NAME = "auth";
 
-export {SLICE_NAME}
+export { SLICE_NAME };

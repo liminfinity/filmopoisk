@@ -1,6 +1,6 @@
 interface IActor {
-    name: string
-    photo: string
+	name: string;
+	photo: string;
 }
 
-export type {IActor}
+export type { IActor };

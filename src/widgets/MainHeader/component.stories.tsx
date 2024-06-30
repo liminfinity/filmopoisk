@@ -5,11 +5,13 @@ import { ReduxProvider } from "@app/providers";
 const meta = {
 	component: Component,
 	title: "Widgets/MainHeader",
-	decorators: [(Story) => (
-		<ReduxProvider>
-			<Story />
-		</ReduxProvider>
-	)],
+	decorators: [
+		Story => (
+			<ReduxProvider>
+				<Story />
+			</ReduxProvider>
+		),
+	],
 	tags: ["autodocs"],
 	parameters: {
 		layout: "centered",

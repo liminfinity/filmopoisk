@@ -1,11 +1,11 @@
-import MainHeader from '@widgets/MainHeader'
-import { Outlet } from 'react-router-dom'
+import MainHeader from "@widgets/MainHeader";
+import { Outlet } from "react-router-dom";
 
 export default function Layout() {
-  return (
-	<>
-		<MainHeader/>
-		<Outlet/>
-	</>
-  )
+	return (
+		<>
+			<MainHeader />
+			<Outlet />
+		</>
+	);
 }

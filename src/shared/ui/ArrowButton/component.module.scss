@@ -2,24 +2,23 @@
 @use "/src/app/styles/_mixins" as mixins;
 
 .default.default {
-    padding: calc(map-get(vars.$paddings, default) / 2);
-    width: 3rem;
-    aspect-ratio: 1 / 1;
-    box-shadow: map-get(vars.$shadows, control);
-    background: map-get(vars.$colors, white1);
-    &:disabled {
-        background: map-get(vars.$colors, white3);
-        & .arrow path {
-            fill: map-get(vars.$colors, gray3);
-        }
-    }
-
+	padding: calc(map-get(vars.$paddings, default) / 2);
+	width: 3rem;
+	aspect-ratio: 1 / 1;
+	box-shadow: map-get(vars.$shadows, control);
+	background: map-get(vars.$colors, white1);
+	&:disabled {
+		background: map-get(vars.$colors, white3);
+		& .arrow path {
+			fill: map-get(vars.$colors, gray3);
+		}
+	}
 }
 
 .right {
-    transform: translateX(1px);
+	transform: translateX(1px);
 }
 
 .left {
-    transform: translateX(-2px) rotate(180deg);
+	transform: translateX(-2px) rotate(180deg);
 }

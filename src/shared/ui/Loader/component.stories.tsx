@@ -7,7 +7,7 @@ const meta = {
 	tags: ["autodocs"],
 	parameters: {
 		layout: "centered",
-	}
+	},
 } satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof Component>;

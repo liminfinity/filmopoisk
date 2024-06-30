@@ -2,49 +2,44 @@
 @use "/src/app/styles/_mixins" as mixins;
 
 .default {
-    @include mixins.flex {
-        gap: calc(map-get(vars.$gaps, default) / 2);
-    }   
-    
+	@include mixins.flex {
+		gap: calc(map-get(vars.$gaps, default) / 2);
+	}
 }
 
 .default,
 .scoreItem,
 .scoreItemIcon {
-    @include mixins.cursorPointer;
+	@include mixins.cursorPointer;
 }
 
 .radio {
-    display: none;
+	display: none;
 }
 
 .scoreItem {
-    @include mixins.flex(column) {
-        gap: calc(map-get(vars.$gaps, default) / 4);
-    };
-    
+	@include mixins.flex(column) {
+		gap: calc(map-get(vars.$gaps, default) / 4);
+	}
 }
 
 .scoreItemHovered {
-    & .scoreItemIcon {
-        fill: map-get(vars.$colors, gray3);
-    }
+	& .scoreItemIcon {
+		fill: map-get(vars.$colors, gray3);
+	}
 }
 .scoreItemActive {
-    & .scoreItemIcon {
-        fill: map-get(vars.$colors, orange);
-        & path {
-            stroke: map-get(vars.$colors, orange); 
-        }
-    }
-    & .scoreItemNumber {
-        color: map-get(vars.$colors, black);
-    }
+	& .scoreItemIcon {
+		fill: map-get(vars.$colors, orange);
+		& path {
+			stroke: map-get(vars.$colors, orange);
+		}
+	}
+	& .scoreItemNumber {
+		color: map-get(vars.$colors, black);
+	}
 }
 
 .scoreItemNumber {
-    @include mixins.label($color: map-get(vars.$colors, gray3));
+	@include mixins.label($color: map-get(vars.$colors, gray3));
 }
-
-
-

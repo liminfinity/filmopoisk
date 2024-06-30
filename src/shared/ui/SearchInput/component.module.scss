@@ -2,27 +2,25 @@
 @use "/src/app/styles/_mixins" as mixins;
 
 .default {
-    @include mixins.flex {
-        gap: calc(map-get(vars.$gaps, default) / 2);
-    }
-    @include mixins.label;
-    @include mixins.cursorPointer;
-    background: map-get(vars.$colors, white1);
-    padding: map-get(vars.$paddings, input);
-    @include mixins.outline($within: true) {
-        outline-offset: -1px;
-    };
-    @include mixins.border;
-    border-radius: map-get(vars.$radius, sm);   
+	@include mixins.flex {
+		gap: calc(map-get(vars.$gaps, default) / 2);
+	}
+	@include mixins.label;
+	@include mixins.cursorPointer;
+	background: map-get(vars.$colors, white1);
+	padding: map-get(vars.$paddings, input);
+	@include mixins.outline($within: true) {
+		outline-offset: -1px;
+	}
+	@include mixins.border;
+	border-radius: map-get(vars.$radius, sm);
 }
 
 .input {
-    outline: none;
-    border: none;
-    &::-webkit-search-cancel-button {
-        display: none;
-    }
-    @include mixins.placeholder;
+	outline: none;
+	border: none;
+	&::-webkit-search-cancel-button {
+		display: none;
+	}
+	@include mixins.placeholder;
 }
-
-

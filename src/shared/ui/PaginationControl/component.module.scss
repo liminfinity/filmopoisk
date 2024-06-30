@@ -2,9 +2,5 @@
 @use "/src/app/styles/_mixins" as mixins;
 
 .default {
-    @include mixins.flex;
+	@include mixins.flex;
 }
-
-
-
-

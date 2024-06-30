@@ -1,5 +1,5 @@
 interface IResponseError {
-    message: string
+	message: string;
 }
 
-export type {IResponseError}
+export type { IResponseError };

@@ -1,9 +1,9 @@
-export type {IDefaultProps} from "./defaultProps";
+export type { IDefaultProps } from "./defaultProps";
 
-export type {RequiredCertain} from "./requiredCertain"
+export type { RequiredCertain } from "./requiredCertain";
 
-export type {IOrigin} from "./origin"
+export type { IOrigin } from "./origin";
 
-export type {IResponseError} from "./responseError"
+export type { IResponseError } from "./responseError";
 
-export type {IDefaultState} from "./defaultState"
+export type { IDefaultState } from "./defaultState";

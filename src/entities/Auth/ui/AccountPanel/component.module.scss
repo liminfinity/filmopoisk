@@ -2,15 +2,14 @@
 @use "/src/app/styles/_mixins" as mixins;
 
 .default {
-    @include mixins.flex;
+	@include mixins.flex;
 }
 
 .avatar {
-    padding: calc(map-get(vars.$paddings, default) / 2);
-    width: 3rem;
-    aspect-ratio: 1 / 1;
-    @include mixins.flex($hasGap: false);
-    border-radius: map-get(vars.$radius, rounded);
-    background: map-get(vars.$colors, white1);
+	padding: calc(map-get(vars.$paddings, default) / 2);
+	width: 2.5rem;
+	aspect-ratio: 1 / 1;
+	@include mixins.flex($hasGap: false);
+	border-radius: map-get(vars.$radius, rounded);
+	background: map-get(vars.$colors, white1);
 }
-
