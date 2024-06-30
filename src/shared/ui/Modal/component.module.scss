@@ -1,0 +1,63 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+    @include mixins.flex(column, $hasGap: false);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: map-get(vars.$zIndex, overlay);
+    background: map-get(vars.$colors, overlay);
+    pointer-events: none;
+    opacity: 0;
+}
+
+.open {
+    pointer-events: all;
+    opacity: 1;
+
+    .container {
+        transform: scale(1);
+    }
+}
+
+.container {
+    min-width: 30%;
+    padding: map-get(vars.$paddings, card);
+    z-index: map-get(vars.$zIndex, modal);
+    border-radius: map-get(vars.$radius, sm);
+    background: map-get(vars.$colors, white1);
+    transform: scale(0);
+    @include mixins.flex(column) {
+        align-items: stretch;
+        gap: map-get(vars.$gaps, primary);
+    };
+}
+
+.header {
+    
+    @include mixins.flex {
+        justify-content: space-between;
+    };
+
+    &.noTitle {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+    }
+}
+
+.title {
+    font-weight: 600;
+    font-size: map-get(vars.$fontSizes, h3);
+}
+
+.close.close {
+    // Outline заходит на svg, нужно отодвинуть
+    outline-offset: 4px;
+}
+
+
+

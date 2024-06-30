@@ -1,3 +1,4 @@
+import { Entry } from "@pages/index";
 import {
 	createBrowserRouter,
 	RouterProvider as ReactRouterProvider,
@@ -6,24 +7,24 @@ import {
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <div>Hello world!</div>,
+		element: <Entry.Layout/>,
 		children: [
 			{
 				index: true,
-				element: <div>Home</div>,
+				element: <Entry.MainPage/>,
+			},
+			{
+				path: "/movies",
+				children: [
+					{
+						path: ":movieId",
+						element: <div>MovieId</div>,
+					}
+				]
 			}
 		],
 	},
-	{
-		path: "/movies",
-		element : <div>Movie</div>,
-		children: [
-			{
-				path: ":movieId",
-				element: <div>MovieId</div>,
-			}
-		]
-	}
+	
 ]);
 
 export default function RouterProvider() {

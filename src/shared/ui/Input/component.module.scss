@@ -3,7 +3,7 @@
 
 .default {
     @include mixins.flex(column) {
-        align-items: flex-start;
+        align-items: stretch;
         gap: calc(map-get(vars.$gaps, default) / 4);
     }
     @include mixins.label;   
@@ -25,6 +25,7 @@
 .label {
     @include mixins.cursorPointer;
     @include mixins.flex {
+        align-self: flex-start;
         gap: calc(map-get(vars.$gaps, default) / 4)
     };
 }

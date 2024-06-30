@@ -8,17 +8,28 @@ import { SLICE_NAME } from "./consts";
 const AuthSlice = createSlice({
 	name: SLICE_NAME,
 	initialState,
-	reducers: {},
+	reducers: {
+		setIsAuth: (state, action: PayloadAction<boolean>) => {
+			state.isAuth = action.payload;
+		}
+	},
 	selectors: {
 		isLoading: (state) => state.status === "pending",
 		isSuccess: (state) => state.status === "fulfilled",
 		isError: (state) => state.status === "rejected",
 		isIdle: (state) => state.status === "idle",
+		isAuth: (state) => state.isAuth,
 		getErrors: (state) => state.errors,
 		getStatus: (state) => state.status,
 	},
 	extraReducers: builder => {
 		builder
+			.addCase(login.fulfilled, state => {
+				state.isAuth = true;
+			})
+			.addCase(logout.fulfilled, state => {
+				state.isAuth = false;
+			})
 			.addMatcher(isFulfilled, state => {
 				state.status = 'fulfilled';
 				state.errors = [];

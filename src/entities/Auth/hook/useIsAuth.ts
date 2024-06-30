@@ -1,12 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { actions, selectors } from "../model";
+import { useAppDispatch } from "@app/hook";
 
 export function useIsAuth() {
-  const [isAuth, setIsAuth] = useState(false);
- 
+  const isAuth = useSelector(selectors.isAuth)
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     const token = localStorage.getItem("token");
-    setIsAuth(!!token);
-  }, []);
+    if (!isAuth) {
+      dispatch(actions.setIsAuth(!!token));
+    }
+  }, [isAuth, dispatch]);
 
   return isAuth;
 }

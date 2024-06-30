@@ -1,0 +1,18 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+    position: sticky;
+    top: 0;
+    @include mixins.flex {
+        justify-content: space-between;
+    }
+    padding: map-get(vars.$paddings, header);
+    background: map-get(vars.$colors, gray1);
+}
+
+.title {
+    font-weight: 700;
+    color: map-get(vars.$colors, white1);
+}
+
