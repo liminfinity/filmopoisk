@@ -13,8 +13,10 @@ export default function MovieScore({
 	const [score, setScore] = useState<number>();
 	const [hoverScore, setHoverScore] = useState<number>();
 	const [debouncedScore] = useDebounce(score, SCORE_DEBOUCE_TIME);
-	const [sendMovieRate, { data }] = useSendMovieRateMutation();
+	const [sendMovieRate, { data, isError, error }] =
+		useSendMovieRateMutation();
 
+	if (isError) console.error(error);
 	if (data) setNewRate && setNewRate(data.newAverageRate);
 
 	useEffect(() => {

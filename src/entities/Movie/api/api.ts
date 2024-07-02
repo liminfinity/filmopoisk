@@ -14,6 +14,10 @@ const MovieApi = createApi({
 	baseQuery: fetchBaseQuery({
 		baseUrl: API_URL,
 		timeout: 5000,
+		responseHandler: res => {
+			if (res.ok) return res.json();
+			return Promise.reject(res);
+		},
 	}),
 	tagTypes: ["movies"],
 	keepUnusedDataFor: 10 * 60, // 10 minutes,
@@ -21,7 +25,9 @@ const MovieApi = createApi({
 	refetchOnReconnect: true,
 	endpoints: build => ({
 		getMovieById: build.query<IGetMovieByIdResponse, IGetMovieByIdRequest>({
-			query: ({ id }) => `movie/${id}`,
+			query: ({ id }) => ({
+				url: `movie/${id}`,
+			}),
 			providesTags: (_result, _error, { id }) => [{ type: "movies", id }],
 		}),
 		getMovies: build.query<

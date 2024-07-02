@@ -20,13 +20,15 @@ export default function ISearchAndMovieList({
 		data: movies,
 		isSuccess,
 		isFetching,
+		error,
+		isError,
 	} = useGetMoviesQuery({
 		page,
 		genre,
 		title,
 		release_year,
 	});
-
+	if (isError) console.error(error);
 	return (
 		<section className={classNames(styles.default, className)}>
 			<MovieSearchInput />

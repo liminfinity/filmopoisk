@@ -30,6 +30,12 @@ export default function AuthModal({ onClose, ...props }: IAuthModalProps) {
 
 		if (isFulfilled(res)) {
 			onClose && onClose();
+		} else {
+			console.error(res.meta.requestStatus);
+			setCredentials(draft => {
+				draft.password = "";
+				draft.username = "";
+			});
 		}
 	};
 	return (
@@ -54,8 +60,10 @@ export default function AuthModal({ onClose, ...props }: IAuthModalProps) {
 					onChange={handleChange}
 				/>
 				<div className={styles.buttons}>
-					<Button variant="filled">Войти</Button>
-					<Button variant="outlined" onClick={onClose}>
+					<Button type="submit" variant="filled">
+						Войти
+					</Button>
+					<Button type="button" variant="outlined" onClick={onClose}>
 						Отменить
 					</Button>
 				</div>

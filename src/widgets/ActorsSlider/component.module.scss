@@ -1,0 +1,40 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+	@include mixins.flex(column) {
+		align-items: flex-start;
+		gap: map-get(vars.$gaps, primary);
+	}
+}
+
+.title {
+	font-weight: 600;
+	font-size: map-get(vars.$fontSizes, h2);
+}
+
+.slider {
+	width: 100%;
+	position: relative;
+}
+
+.actors {
+	@include mixins.flex {
+		justify-content: flex-start;
+		gap: map-get(vars.$gaps, primary);
+	}
+}
+
+.arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.arrowLeft {
+	left: 0;
+}
+
+.arrowRight {
+	right: 0;
+}

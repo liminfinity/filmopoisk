@@ -44,7 +44,6 @@
 
 .infoSection {
 	@include mixins.flex {
-
 		justify-content: flex-start;
 		gap: calc(map-get(vars.$gaps, default) / 2);
 	}

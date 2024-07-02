@@ -20,6 +20,8 @@
 
 .logo {
 	@include mixins.cursorPointer;
+	@include mixins.outline;
+	border-radius: map-get(vars.$radius, sm);
 	text-decoration: none;
 }
 

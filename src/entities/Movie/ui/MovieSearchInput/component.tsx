@@ -36,6 +36,7 @@ export default function MovieSearchInput({
 
 	return (
 		<SearchInput
+			placeholder="Название фильма"
 			className={className}
 			value={queryTitle}
 			onChange={e => setQueryTitle(e.target.value)}

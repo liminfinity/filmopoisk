@@ -3,34 +3,29 @@ import classNames from "classnames";
 import styles from "./component.module.scss";
 import { useIsAuth } from "@entities/Auth/hook";
 import { IMovieFullCardProps } from "./component.props";
-import { useParams } from "react-router-dom";
-import { IMovieParams } from "@entities/Movie/types";
-import { useGetMovieByIdQuery } from "@entities/Movie/api";
 import { useState } from "react";
+import { useMovie } from "@entities/Movie/hook";
 
 interface IMovieInfoSection {
 	label: string;
 	value: string;
 }
-export default function MovieFullCard({
-	className,
-}: IMovieFullCardProps) {
-	const {movieId} = useParams<keyof IMovieParams>();
-	const {data: movie, isSuccess} = useGetMovieByIdQuery({id: movieId}, {skip: !movieId});
+export default function MovieFullCard({ className }: IMovieFullCardProps) {
+	const movie = useMovie();
 	const isAuth = useIsAuth();
 	const [rating, setRating] = useState(movie?.rating ?? "");
 
 	//* Условие для первого получения рейтинга с запроса. После рейтинг обновляется в компоненте MovieScore без запросов в сеть
 	if (!rating && movie?.rating) setRating(movie.rating);
-	
-	if (!isSuccess) return null;
-	const {description, genre, poster, release_year, title, id} = movie;
+
+	if (!movie) return null;
+	const { description, genre, poster, release_year, title, id } = movie;
 
 	const movieInfoSections: IMovieInfoSection[] = [
 		{ label: "Жанр", value: genre },
 		{ label: "Год выпуска", value: release_year.toString() },
 		{ label: "Рейтинг", value: rating },
-		{ label: "Описание", value: description},
+		{ label: "Описание", value: description },
 	];
 
 	return (
@@ -40,25 +35,27 @@ export default function MovieFullCard({
 				<div className={styles.header}>
 					<h2 className={styles.title}>{title}</h2>
 					{isAuth && (
-						<MovieScore movieId={id} className={styles.score} setNewRate={setRating}/>
+						<MovieScore
+							movieId={id}
+							className={styles.score}
+							setNewRate={setRating}
+						/>
 					)}
 				</div>
 				<ul className={styles.info}>
 					{movieInfoSections.map(({ label, value }, idx) => (
-						<li 
-							key={idx} 
-							className={classNames(
-									styles.infoSection, 
-									{
-										[styles.infoSectionDescription]: label === "Описание"
-									})
-							}
+						<li
+							key={idx}
+							className={classNames(styles.infoSection, {
+								[styles.infoSectionDescription]:
+									label === "Описание",
+							})}
 						>
 							<span className={styles.infoSectionLabel}>
 								{label}:
 							</span>
 							<span className={styles.infoSectionValue}>
-								{label === 'Рейтинг' ? rating : value}
+								{value}
 							</span>
 						</li>
 					))}

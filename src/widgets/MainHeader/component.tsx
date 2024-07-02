@@ -8,7 +8,7 @@ export default function MainHeader({ className }: IMainHeaderProps) {
 	return (
 		<header className={classNames(styles.default, className)}>
 			<div className={styles.container}>
-				<Link className={styles.logo} to={'/'}>
+				<Link className={styles.logo} to={"/"}>
 					<h1 className={styles.title}>Фильмопоиск</h1>
 				</Link>
 				<AuthPanel />
