@@ -8,11 +8,10 @@ interface IMovie {
 	release_year: number;
 	poster: string;
 	rating: string;
-	total_rates_count: string;
 	genre: GenresRussian;
 	actors: IActor[];
 }
 
-type IShortMovie = Omit<IMovie, "actors" | "total_rates_count" | "rating">;
+type IShortMovie = Omit<IMovie, "actors" | "rating">;
 
 export type { IMovie, IShortMovie };

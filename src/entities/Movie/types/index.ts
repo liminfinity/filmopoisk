@@ -16,3 +16,5 @@ export type {
 	Years,
 	YearOptions,
 } from "./filters";
+
+export type {IMovieParams} from "./params"

@@ -15,7 +15,7 @@ export default function MovieScore({
 	const [debouncedScore] = useDebounce(score, SCORE_DEBOUCE_TIME);
 	const [sendMovieRate, { data }] = useSendMovieRateMutation();
 
-	if (data) setNewRate && setNewRate(+data.newAverageRate);
+	if (data) setNewRate && setNewRate(data.newAverageRate);
 
 	useEffect(() => {
 		if (score === debouncedScore && score) {

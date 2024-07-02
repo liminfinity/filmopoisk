@@ -4,7 +4,7 @@ import { withRouter } from "storybook-addon-remix-react-router";
 
 const meta = {
 	component: Component,
-	decorators: [withRouter()],
+	decorators: [withRouter],
 	title: "Widgets/MovieFilters",
 	tags: ["autodocs"],
 	parameters: {

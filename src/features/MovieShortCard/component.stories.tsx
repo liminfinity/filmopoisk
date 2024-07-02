@@ -4,7 +4,7 @@ import { ReduxProvider } from "@app/providers";
 
 const meta = {
 	component: Component,
-	title: "Feautres/MovieShortCard",
+	title: "Features/MovieShortCard",
 	decorators: [
 		Story => (
 			<ReduxProvider>

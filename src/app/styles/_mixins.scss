@@ -65,7 +65,7 @@
 	}
 }
 
-@mixin container($maxWidth: 1400px) {
+@mixin container($maxWidth: 1600px) {
 	margin: 0 auto;
 	max-width: $maxWidth;
 	padding: map-get(vars.$paddings, default);
