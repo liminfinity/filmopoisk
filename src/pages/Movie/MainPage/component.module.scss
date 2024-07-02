@@ -1,0 +1,14 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+	@include mixins.mainContent;
+	@include mixins.container;
+	@include mixins.flex(column) {
+		align-items: stretch;
+		justify-content: stretch;
+		gap: map-get(vars.$gaps, primary);
+	}
+	width: 100%;
+	padding-bottom: map-get(vars.$paddings, card);
+}

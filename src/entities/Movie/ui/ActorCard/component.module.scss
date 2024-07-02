@@ -1,0 +1,18 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+	@include mixins.flex(column) {
+		align-items: flex-start;
+	}
+}
+
+.photo {
+	@include mixins.image;
+	width: 10rem;
+	height: 14rem;
+}
+
+.name {
+	@include mixins.label;
+}

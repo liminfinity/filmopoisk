@@ -11,7 +11,7 @@ export default function SearchInput({
 	...props
 }: ISearchInputProps) {
 	return (
-		<label tabIndex={0} className={classNames(styles.default, className)}>
+		<label className={classNames(styles.default, className)}>
 			<svg
 				width="16"
 				height="16"
@@ -30,6 +30,7 @@ export default function SearchInput({
 				type="search"
 				className={styles.input}
 				value={value}
+				onChange={onChange}
 				{...props}
 			/>
 			{value && (

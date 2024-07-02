@@ -1,0 +1,22 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+	@include mixins.flex(column) {
+		align-items: stretch;
+		gap: map-get(vars.$gaps, default) * 1.25;
+	}
+	padding: map-get(vars.$paddings, card);
+	background: map-get(vars.$colors, white1);
+	border-radius: map-get(vars.$radius, sm);
+}
+
+.title {
+	font-weight: 600;
+}
+
+.selectors {
+	@include mixins.flex(column) {
+		align-items: stretch;
+	}
+}

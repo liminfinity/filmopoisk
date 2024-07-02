@@ -1,2 +1,42 @@
 @use "/src/app/styles/_variables" as vars;
 @use "/src/app/styles/_mixins" as mixins;
+
+.default {
+	@include mixins.flex(column) {
+		align-items: stretch;
+	}
+}
+
+.main {
+	flex: 1;
+	@include mixins.flex(column) {
+		justify-content: flex-start;
+		align-items: stretch;
+	}
+	&:has(.notFound, .loader) {
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.movies {
+	@include mixins.flex(column) {
+		align-items: stretch;
+	}
+}
+
+.movieItem {
+	@include mixins.outline($within: true);
+	border-radius: map-get(vars.$radius, sm);
+}
+
+.link {
+	@include mixins.cursorPointer;
+	outline: none;
+	text-decoration: none;
+	color: inherit;
+}
+
+.pagination {
+	align-self: flex-start;
+}

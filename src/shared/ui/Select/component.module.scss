@@ -4,14 +4,16 @@
 .default {
 	position: relative;
 	@include mixins.flex(column) {
-		align-items: flex-start;
+		align-items: stretch;
 		gap: calc(map-get(vars.$gaps, default) / 4);
 	}
 	@include mixins.cursorPointer;
 }
 
 .select.select {
-	@include mixins.flex;
+	@include mixins.flex {
+		justify-content: space-between;
+	}
 	padding: map-get(vars.$paddings, select);
 	border-radius: map-get(vars.$radius, sm);
 	@include mixins.placeholder;
@@ -40,10 +42,11 @@
 	width: 100%;
 	z-index: map-get(vars.$zIndex, select);
 	@include mixins.flex(column) {
+		justify-content: flex-start;
 		align-items: stretch;
 		gap: calc(map-get(vars.$gaps, default) / 4);
 	}
-	max-height: 200px;
+	max-height: 250px;
 	overflow-y: auto;
 	border-radius: map-get(vars.$radius, sm);
 	padding: calc(map-get(vars.$paddings, default) / 2);

@@ -1,4 +1,4 @@
-import { Entry } from "@pages/index";
+import { Home, Movie } from "@pages/index";
 import {
 	createBrowserRouter,
 	RouterProvider as ReactRouterProvider,
@@ -7,18 +7,18 @@ import {
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Entry.Layout />,
+		element: <Home.Layout />,
 		children: [
 			{
 				index: true,
-				element: <Entry.MainPage />,
+				element: <Home.MainPage />,
 			},
 			{
 				path: "/movies",
 				children: [
 					{
 						path: ":movieId",
-						element: <div>MovieId</div>,
+						element: <Movie.MainPage />,
 					},
 				],
 			},

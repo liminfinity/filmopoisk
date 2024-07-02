@@ -7,3 +7,5 @@ export type { IOrigin } from "./origin";
 export type { IResponseError } from "./responseError";
 
 export type { IDefaultState } from "./defaultState";
+
+export type { Primitive } from "./primitive";

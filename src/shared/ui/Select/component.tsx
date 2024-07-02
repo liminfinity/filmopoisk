@@ -2,19 +2,18 @@ import classNames from "classnames";
 import { ISelectProps } from "./component.props";
 import styles from "./component.module.scss";
 import Button from "../Button";
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
-export default function Select({
+export default function Select<T extends ReactNode>({
 	options,
 	value,
 	onChange,
 	placeholder,
 	label,
 	className,
-}: ISelectProps) {
+}: ISelectProps<T>) {
 	const [isActive, setActive] = useState(false);
 	const selectRef = useRef<HTMLButtonElement>(null);
-
 	useEffect(() => {
 		const closeSelect = (e: MouseEvent) => {
 			if (
@@ -62,8 +61,8 @@ export default function Select({
 			</Button>
 			{isActive && (
 				<ul className={styles.options}>
-					{options.map(option => (
-						<li key={option}>
+					{options.map((option, idx) => (
+						<li key={idx}>
 							<Button
 								className={classNames(styles.option, {
 									[styles.selected]: option === value,

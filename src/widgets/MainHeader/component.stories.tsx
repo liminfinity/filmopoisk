@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Component from "./component";
 import { ReduxProvider } from "@app/providers";
+import { withRouter } from "storybook-addon-remix-react-router";
 
 const meta = {
 	component: Component,
@@ -11,6 +12,7 @@ const meta = {
 				<Story />
 			</ReduxProvider>
 		),
+		withRouter
 	],
 	tags: ["autodocs"],
 	parameters: {

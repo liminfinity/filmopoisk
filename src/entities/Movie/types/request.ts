@@ -15,7 +15,7 @@ interface IGetMoviesRequest {
 }
 
 interface IGetMovieByIdRequest {
-	id: string;
+	id?: string;
 }
 
 interface ISendMovieRateRequest {

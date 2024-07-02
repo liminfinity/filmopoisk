@@ -14,18 +14,37 @@ const MovieApi = createApi({
 	baseQuery: fetchBaseQuery({
 		baseUrl: API_URL,
 		timeout: 5000,
+		responseHandler: res => {
+			if (res.ok) return res.json();
+			return Promise.reject(res);
+		},
 	}),
 	tagTypes: ["movies"],
 	keepUnusedDataFor: 10 * 60, // 10 minutes,
+	refetchOnFocus: true,
+	refetchOnReconnect: true,
 	endpoints: build => ({
 		getMovieById: build.query<IGetMovieByIdResponse, IGetMovieByIdRequest>({
-			query: ({ id }) => `movie/${id}`,
+			query: ({ id }) => ({
+				url: `movie/${id}`,
+			}),
 			providesTags: (_result, _error, { id }) => [{ type: "movies", id }],
 		}),
-		getMovies: build.query<IGetMoviesResponse, IGetMoviesRequest>({
+		getMovies: build.query<
+			IGetMoviesResponse,
+			Pick<IGetMoviesRequest, "genre" | "title" | "page" | "release_year">
+		>({
 			query: params => ({
 				url: "search",
-				params,
+				params: {
+					...params,
+					release_year:
+						params.release_year === "0"
+							? undefined
+							: params.release_year,
+					genre: params.genre === "0" ? undefined : params.genre,
+					title: params.title || " ",
+				},
 			}),
 			providesTags: (_result, _error, params) => [
 				{ type: "movies", id: JSON.stringify(params) },

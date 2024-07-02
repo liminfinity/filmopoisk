@@ -1,0 +1,13 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+	@include mixins.flex(column) {
+		gap: calc(map-get(vars.$gaps, default) / 2);
+	}
+	text-align: center;
+}
+
+.description {
+	@include mixins.label($color: map-get(vars.$colors, gray2));
+}

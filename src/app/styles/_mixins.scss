@@ -41,8 +41,8 @@
 	}
 }
 
-@mixin outline($color: map-get(vars.$colors, white2), $within: false) {
-	outline: none;
+@mixin outline($within: false) {
+	outline: 1px solid transparent;
 	outline-offset: 1px;
 	&:focus-visible {
 		outline: 1px solid map-get(vars.$colors, orange);
@@ -63,4 +63,15 @@
 	@supports (image-rendering: crisp-edges) {
 		image-rendering: crisp-edges;
 	}
+}
+
+@mixin container($maxWidth: 1600px) {
+	margin: 0 auto;
+	max-width: $maxWidth;
+	padding: map-get(vars.$paddings, default);
+	@content;
+}
+
+@mixin mainContent {
+	flex: 1;
 }

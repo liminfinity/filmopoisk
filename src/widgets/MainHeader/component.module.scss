@@ -4,11 +4,25 @@
 .default {
 	position: sticky;
 	top: 0;
+	z-index: map-get(vars.$zIndex, header);
+
+	background: map-get(vars.$colors, gray1);
+}
+
+.container {
+	@include mixins.container {
+		padding: map-get(vars.$paddings, header);
+	}
 	@include mixins.flex {
 		justify-content: space-between;
 	}
-	padding: map-get(vars.$paddings, header);
-	background: map-get(vars.$colors, gray1);
+}
+
+.logo {
+	@include mixins.cursorPointer;
+	@include mixins.outline;
+	border-radius: map-get(vars.$radius, sm);
+	text-decoration: none;
 }
 
 .title {
