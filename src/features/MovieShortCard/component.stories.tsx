@@ -24,9 +24,9 @@ export const MovieShortCardDefault: Story = {
 	args: {
 		movie: {
 			id: "1",
-			title: "The Shawshank Redemption",
+			title: "Побег из Шоушенка",
 			description:
-				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+				"Двое заключенных на протяжении нескольких лет связывают себя узами брака, находя утешение и искупление через обычные поступки.",
 			release_year: 1994,
 			genre: "Драма",
 			poster: "https://pic.rutubelist.ru/video/ac/a8/aca823155688e35e5a60bc0fe9499c47.jpg",

@@ -1,0 +1,1 @@
+export { useMovieSearchParams } from "./useMovieSearchParams";

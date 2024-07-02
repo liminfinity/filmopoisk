@@ -23,6 +23,11 @@
 	}
 }
 
+.scoreItemLabel {
+	@include mixins.outline;
+	border-radius: map-get(vars.$radius, sm);
+}
+
 .scoreItemHovered {
 	& .scoreItemIcon {
 		fill: map-get(vars.$colors, gray3);

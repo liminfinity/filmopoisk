@@ -3,24 +3,31 @@
 
 .default {
 	@include mixins.flex {
-		align-items: stretch;
-		gap: map-get(vars.$gaps, primary);
+		align-items: flex-start;
 	}
 	padding: map-get(vars.$paddings, card);
 	border-radius: map-get(vars.$radius, sm);
 	background: map-get(vars.$colors, white1);
 }
 
-.content {
+.main {
 	flex: 1;
 	@include mixins.flex(column) {
-		align-items: flex-start;
+		align-items: stretch;
 	}
 }
 
 .poster {
 	@include mixins.image;
 	width: 7rem;
+	height: 9rem;
+}
+
+.header {
+	@include mixins.flex {
+		align-items: flex-start;
+		justify-content: space-between;
+	}
 }
 
 .title {
@@ -28,27 +35,24 @@
 }
 
 .info {
+	max-width: 80%;
 	@include mixins.flex(column) {
-		align-items: flex-start;
+		align-items: stretch;
 		gap: calc(map-get(vars.$gaps, default) - 4px);
 	}
 }
 
 .infoSection {
-	max-width: 70%;
-	@include mixins.flex {
+	@include mixins.grid {
 		align-items: flex-start;
+		justify-content: space-between;
+		grid-template-columns: 13% 87%;
 	}
 }
-
 .infoSectionLabel {
 	@include mixins.label($color: map-get(vars.$colors, gray3));
 }
 
 .infoSectionValue {
 	@include mixins.label;
-}
-
-.score {
-	align-self: flex-start;
 }

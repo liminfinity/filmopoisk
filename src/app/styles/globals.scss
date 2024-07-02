@@ -1,4 +1,5 @@
 @use "_variables" as vars;
+@use "_mixins" as mixins;
 
 *,
 *::before,
@@ -17,12 +18,23 @@ fieldset {
 	border: none;
 }
 
+html {
+	scrollbar-gutter: stable;
+}
+
 body {
 	min-height: 100vh;
 	line-height: 1.3;
 	background: map-get(vars.$colors, white3);
 	font-family: map-get(vars.$fonts, family);
 	color: map-get(vars.$colors, black);
+}
+
+#root {
+	min-height: inherit;
+	@include mixins.flex(column) {
+		align-items: stretch;
+	}
 }
 
 @each $header, $size in vars.$fontSizes {

@@ -1,56 +1,58 @@
-import { Loader, PaginationControl, SearchInput } from "@shared/ui";
+import {
+	MoviePaginationControl,
+	MovieSearchInput,
+	MoviesNotFound,
+} from "@entities/Movie/ui";
 import { ISearchAndMovieListProps } from "./component.props";
-import { useState } from "react";
+import { useMovieSearchParams } from "@entities/Movie/hook";
 import { useGetMoviesQuery } from "@entities/Movie/api";
-import MovieShortCard from "@features/MovieShortCard";
+import { MovieShortCard } from "@features/index";
 import classNames from "classnames";
 import styles from "./component.module.scss";
-import { useDebounce } from "use-debounce";
+import { Loader } from "@shared/ui";
+import { Link } from "react-router-dom";
 
-export default function SearchAndMovieList({
+export default function ISearchAndMovieList({
 	className,
 }: ISearchAndMovieListProps) {
-	const [movieTitle, setMovieTitle] = useState("");
-	const [debouncedMovieTitle] = useDebounce(movieTitle, 300);
-	const [page, setPage] = useState(1);
-	const { data, isSuccess, isLoading } = useGetMoviesQuery(
-		{
-			page,
-			limit: 10,
-			title: movieTitle,
-		},
-		{ skip: debouncedMovieTitle !== movieTitle },
-	);
+	const { genre, page, title, release_year } = useMovieSearchParams();
+	const {
+		data: movies,
+		isSuccess,
+		isFetching,
+	} = useGetMoviesQuery({
+		page,
+		genre,
+		title,
+		release_year,
+	});
+
 	return (
 		<section className={classNames(styles.default, className)}>
-			<SearchInput
-				value={movieTitle}
-				onChange={e => setMovieTitle(e.target.value)}
-				onClear={() => setMovieTitle("")}
-			/>
-			{isLoading && <Loader />}
-			{isSuccess && !!data.search_result.length && (
-				<div>
-					<span>Фильмы не найдены</span>
-					<span>Измените запрос и попробуйте снова</span>
-				</div>
-			)}
-			{isSuccess && !!data.search_result.length && (
-				<div>
-					<ul>
-						{data.search_result.map(movie => (
-							<li key={movie.id}>
-								<MovieShortCard movie={movie} />
-							</li>
-						))}
-					</ul>
-					<PaginationControl
-						currentPage={page}
-						totalPages={data.total_pages}
-						onPageChange={setPage}
-					/>
-				</div>
-			)}
+			<MovieSearchInput />
+			<main className={styles.main}>
+				{isSuccess && !isFetching && !!movies.total_pages && (
+					<>
+						<ul className={styles.movies}>
+							{movies.search_result.map(movie => (
+								<li className={styles.movieItem} key={movie.id}>
+									<Link
+										className={styles.link}
+										to={`/movies/${movie.id}`}
+									>
+										<MovieShortCard movie={movie} />
+									</Link>
+								</li>
+							))}
+						</ul>
+						<MoviePaginationControl className={styles.pagination} />
+					</>
+				)}
+				{isSuccess && !isFetching && !movies.total_pages && (
+					<MoviesNotFound className={styles.notFound} />
+				)}
+				{isFetching && <Loader className={styles.loader} />}
+			</main>
 		</section>
 	);
 }

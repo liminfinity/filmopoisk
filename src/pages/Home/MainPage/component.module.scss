@@ -1,0 +1,24 @@
+@use "/src/app/styles/_variables" as vars;
+@use "/src/app/styles/_mixins" as mixins;
+
+.default {
+	@include mixins.mainContent;
+	@include mixins.container;
+	@include mixins.grid {
+		gap: map-get(vars.$gaps, primary);
+		grid-template-columns: repeat(4, 1fr);
+		justify-content: stretch;
+		align-items: stretch;
+	}
+	width: 100%;
+	padding-bottom: map-get(vars.$paddings, card);
+}
+
+.filters {
+	grid-column: 1 / 2;
+	align-self: flex-start;
+}
+
+.list {
+	grid-column: 2 / 5;
+}

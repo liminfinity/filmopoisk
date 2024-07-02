@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { IScoreProps } from "./component.props";
 import styles from "./component.module.scss";
+
 export default function Score({
 	className,
 	value = 0,
@@ -11,6 +12,7 @@ export default function Score({
 }: IScoreProps) {
 	return (
 		<fieldset
+			onClick={e => e.stopPropagation()}
 			onMouseLeave={() => onHoverChange && onHoverChange(undefined)}
 			className={classNames(styles.default, className)}
 		>
@@ -21,6 +23,8 @@ export default function Score({
 				const isActive = currentScore <= value;
 				return (
 					<label
+						tabIndex={0}
+						className={styles.scoreItemLabel}
 						key={currentScore}
 						onMouseEnter={() =>
 							onHoverChange && onHoverChange(currentScore)

@@ -9,3 +9,10 @@ export type {
 	IGetMovieByIdResponse,
 	ISendMovieRateResponse,
 } from "./response";
+
+export type {
+	GenresEnglish,
+	GenresRussian,
+	Years,
+	YearOptions,
+} from "./filters";
